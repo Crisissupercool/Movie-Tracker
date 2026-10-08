@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What I'm into</title>
+  <meta name="description" content="What I'm watching and playing, my recommendations, and a place to send me yours.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>What I'm into</h1>
+      <p class="sub">Watching, playing, recommending. Got a rec? Send it down below.</p>
+    </header>
+
+    <main>
+      <section id="now" hidden>
+        <h2 class="c-green"><span class="dot-ico"></span>Stuff I'm currently watching or playing</h2>
+        <div id="now-list" class="cards"></div>
+      </section>
+
+      <section id="finished" hidden>
+        <div class="head">
+          <h2 class="c-muted"><span class="dot-ico"></span>Recently finished</h2>
+          <button id="merge" class="merge" type="button" aria-pressed="false" title="Combine all categories into one list">
+            <span class="merge-dot"></span><span class="merge-label">Combine</span>
+          </button>
+        </div>
+        <div id="finished-pins" class="seg" hidden></div>
+        <div id="finished-body"></div>
+      </section>
+
+      <section id="mine" hidden>
+        <div class="head">
+          <h2 class="c-teal"><span class="dot-ico"></span>Recommendations</h2>
+          <div id="recs-sort" class="seg" aria-label="Show this category first"></div>
+        </div>
+        <div id="recs-list" class="cards"></div>
+      </section>
+
+      <section id="next" hidden>
+        <h2 class="c-brown"><span class="dot-ico"></span>My list <span class="hint">(up next)</span></h2>
+        <div id="next-list" class="cards"></div>
+      </section>
+
+      <section id="visitor">
+        <h2 class="send"><span class="pill">Want to recommend me something?</span> <span class="hint">lowkey tell me!</span></h2>
+        <div class="visitor-grid">
+          <div class="browse panel">
+            <h3>Browse</h3>
+            <input id="browse-search" type="search" placeholder="Search here" aria-label="Search recommendations">
+            <div id="browse-sort" class="seg" aria-label="Show this category first"></div>
+            <ul id="browse-list" class="browse-list"></ul>
+          </div>
+
+          <form id="rec-form" class="panel" novalidate>
+            <p class="req-hint">Only the title is necessary to fill</p>
+            <label>Tv show/movie/game title*
+              <input name="title" type="text" maxlength="120" required autocomplete="off">
+            </label>
+            <label>Type
+              <select name="type">
+                <option value="unknown">Not sure / doesn't matter</option>
+                <option value="tv">TV show</option>
+                <option value="movie">Movie</option>
+                <option value="game">Game</option>
+              </select>
+            </label>
+            <label>Why do you want to recommend this?
+              <textarea name="why" rows="3" maxlength="500"></textarea>
+            </label>
+            <label>Other notes
+              <textarea name="notes" rows="2" maxlength="500"></textarea>
+            </label>
+            <!-- honeypot: hidden from people, bots fill it in -->
+            <div class="hp" aria-hidden="true"><label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <div id="turnstile-slot"></div>
+            <div class="form-row">
+              <button id="send-btn" type="submit">Send yay</button>
+              <span id="form-msg" role="status"></span>
+            </div>
+            <p class="fine">I read every one. Recs show up in Browse once I've approved them.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Posters and metadata:
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a> (this product uses the TMDB API but is not endorsed or certified by TMDB) and
+        <a href="https://rawg.io/" target="_blank" rel="noopener">RAWG</a>.</p>
+    </footer>
+  </div>
+
+  <dialog id="item-dialog" aria-label="Details"></dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin</title>
+  <style>
+    :root { color-scheme: dark; --bg:#121212; --panel:#1a1c1e; --line:#33383d; --fg:#d3d3d3; --muted:#6e757c; --green:#39994b; --red:#b44d4d; --blue:#2273b4; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+    h1 { font-size: 1.4rem; margin: 0 0 16px; }
+    .bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    input, select, button { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+    input { flex: 1; min-width: 200px; }
+    button { cursor: pointer; }
+    button.on { background: var(--line); }
+    button.go { background: var(--blue); border-color: var(--blue); color: #fff; }
+    button.ok { border-color: var(--green); color: var(--green); }
+    button.no { border-color: var(--red); color: var(--red); }
+    .item { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 10px; }
+    .t { font-weight: 600; }
+    .w, .n { margin-top: 4px; font-size: .9rem; white-space: pre-wrap; }
+    .n { color: var(--muted); }
+    .d { font-size: .75rem; color: var(--muted); margin-top: 4px; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    #msg { min-height: 1.5em; color: var(--muted); margin-bottom: 8px; }
+    #msg.err { color: var(--red); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Recommendations inbox</h1>
+    <form class="bar" id="login">
+      <input id="token" type="password" placeholder="Admin token" autocomplete="current-password">
+      <button class="go" type="submit">Load</button>
+    </form>
+    <div class="bar" id="tabs" hidden>
+      <button data-s="pending" class="on" type="button">Pending</button>
+      <button data-s="approved" type="button">Approved</button>
+      <button data-s="rejected" type="button">Rejected</button>
+    </div>
+    <div id="msg"></div>
+    <div id="list"></div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

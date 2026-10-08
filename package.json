@@ -1,0 +1,15 @@
+{
+  "name": "recs-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal watching/playing/recommendations site with moderated visitor recs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "find": "node scripts/find.mjs",
+    "dev": "vercel dev"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
