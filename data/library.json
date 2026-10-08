@@ -15,11 +15,11 @@
   { "type": "tv", "query": "From", "status": "finished" },
   { "type": "movie", "query": "Children of Men", "year": 2006, "status": "finished", "rating": 10, "recommended": true },
   { "type": "movie", "query": "Morbius", "year": 2022, "status": "finished", "rating": 2 },
-  { "type": "game", "title": "Mafia 1", "query": "Mafia: The City of Lost Heaven", "status": "finished", "platform": "Pc", "rating": 8 },
+  { "type": "game", "title": "Mafia 1", "query": "Mafia", "year": 2002, "status": "finished", "platform": "Pc", "rating": 8 },
   { "type": "game", "query": "Watch Dogs 2", "status": "finished", "platform": "Pc", "rating": 7 },
   { "type": "game", "query": "The Last of Us Part I", "status": "finished", "platform": "Pc", "rating": 10, "recommended": true, "replay": true },
 
   { "type": "tv", "query": "True Detective", "status": "next" },
   { "type": "game", "query": "Mass Effect Legendary Edition", "status": "next", "platform": "Pc", "note": "In library" },
-  { "type": "game", "query": "Elden Ring", "status": "next", "platform": "Pc" }
+  { "type": "game", "query": "Elden Ring", "year": 2022, "status": "next", "platform": "Pc" }
 ]
