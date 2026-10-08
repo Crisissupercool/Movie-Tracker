@@ -1,4 +1,4 @@
-// Reads data/library.json (your own fields), fetches factual metadata from TMDB/RAWG,
+// Reads data/library.json (your own fields), fetches factual metadata from TMDB/IGDB,
 // and writes the merged result to public/data/library.json for the frontend.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -9,7 +9,11 @@ import { resolveMeta } from '../lib/meta.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 loadEnv(root);
 
-const keys = { tmdb: process.env.TMDB_API_KEY, rawg: process.env.RAWG_API_KEY };
+const keys = {
+  tmdb: process.env.TMDB_API_KEY,
+  igdbId: process.env.IGDB_CLIENT_ID,
+  igdbSecret: process.env.IGDB_CLIENT_SECRET,
+};
 const TYPES = ['tv', 'movie', 'game'];
 const STATUSES = ['now', 'finished', 'next'];
 
@@ -53,7 +57,7 @@ const entries = Array.isArray(raw) ? raw : raw.items;
 validate(entries);
 
 if (!keys.tmdb) console.warn('! TMDB_API_KEY not set: movies/TV will have no poster or year');
-if (!keys.rawg) console.warn('! RAWG_API_KEY not set: games will have no poster or year');
+if (!keys.igdbId || !keys.igdbSecret) console.warn('! IGDB_CLIENT_ID / IGDB_CLIENT_SECRET not set: games will have no poster or year');
 
 const items = await mapLimit(entries, 5, async (e) => {
   let meta = {};
